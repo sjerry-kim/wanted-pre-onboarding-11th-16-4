@@ -5,6 +5,8 @@ import useDebounce from "../hooks/useDebounce";
 import AutocompleteBox from "./AutoCompleteBox";
 import { setSession } from "../utils/sessionStorage";
 import SearchButton from "./SearchButton";
+import styled from "@emotion/styled";
+import { STRING_SVG_CODE } from "../constants/search";
 
 const SearchBar = () => {
   const [word, setWord] = useState("");
@@ -46,20 +48,20 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div isFocused={isFocused}>
-        <div onFocus={openAutoBox} onBlur={closeAutoBox}>
+      <SearchBarContainer isFocused={isFocused}>
+        <FocusedSearchBar onFocus={openAutoBox} onBlur={closeAutoBox}>
           <input
             type="text"
             value={word}
             onChange={changeWord}
             placeholder={isFocused ? "" : "질환명을 입력해 주세요"}
           />
-          <button isFocused={isFocused} onClick={deleteWord}>
+          <DeleteBtn isFocused={isFocused} onClick={deleteWord}>
             X
-          </button>
-        </div>
+          </DeleteBtn>
+        </FocusedSearchBar>
         <SearchButton searchWord={searchWord} />
-      </div>
+      </SearchBarContainer>
       <AutocompleteBox
         word={word}
         setWord={setWord}
@@ -71,5 +73,60 @@ const SearchBar = () => {
     </div>
   );
 };
+
+const SearchBarContainer = styled.div`
+  width: 500px;
+  height: 70px;
+  border-radius: 42px;
+  background-color: white;
+  margin: auto;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  border: ${(props) =>
+    props.isFocused ? "2px solid #017be8" : "1px solid transparent"};
+`;
+
+const FocusedSearchBar = styled.div`
+  background-color: transparent;
+  margin: auto 15px;
+  width: 87%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  input {
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    width: 80%;
+    &::placeholder {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      padding-left: 35px;
+      background-image: url("data:image/svg+xml,${encodeURIComponent(
+        STRING_SVG_CODE
+      )}");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: 5px center;
+      color: #bababa;
+    }
+  }
+`;
+
+const DeleteBtn = styled.button`
+  opacity: ${(props) => (props.isFocused ? "10" : "0")};
+  background-color: #b7b7b7;
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
 
 export default SearchBar;
