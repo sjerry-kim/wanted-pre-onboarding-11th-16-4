@@ -36,33 +36,6 @@ npm start
 
 ---
 
-## 🗂️ 디렉토리 구조
-
-```
-📦 src
-├── apis
-|	├── clientApi.js
-|   └── search.js
-├── components
-|	├── AutoCompleteBox.jsx
-|	├── SearchBar.jsx
-|   └── SearchButtonjsx
-├── constants
-|	├── config.js
-|   └── search.js
-├── hooks
-|   └── useDebounce.js
-├── pages
-|   └── Main.jsx
-├── utils
-|	├── cacheStorage.js
-|   └── sessionStorage.js
-├── App.js
-└── index.js
-```
-
----
-
 ## ✔️ 과제 요구 사항
 
 - 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현
