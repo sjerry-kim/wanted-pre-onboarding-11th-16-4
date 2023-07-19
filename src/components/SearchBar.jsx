@@ -4,6 +4,7 @@ import { searchAPI } from "../apis/search";
 import useDebounce from "../hooks/useDebounce";
 import AutocompleteBox from "./AutoCompleteBox";
 import { setSession } from "../utils/sessionStorage";
+import SearchButton from "./SearchButton";
 
 const SearchBar = () => {
   const [word, setWord] = useState("");
@@ -57,7 +58,7 @@ const SearchBar = () => {
             X
           </button>
         </div>
-        <div onClick={searchWord}>X</div>
+        <SearchButton searchWord={searchWord} />
       </div>
       <AutocompleteBox
         word={word}
