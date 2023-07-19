@@ -42,21 +42,21 @@ npm start
 📦 src
 ├── apis
 |	├── clientApi.js
-| └── search.js
+|   └── search.js
 ├── components
 |	├── AutoCompleteBox.jsx
 |	├── SearchBar.jsx
-| └── SearchButtonjsx
+|   └── SearchButtonjsx
 ├── constants
 |	├── config.js
-| └── search.js
+|   └── search.js
 ├── hooks
-| └── useDebounce.js
+|   └── useDebounce.js
 ├── pages
-| └── Main.jsx
+|   └── Main.jsx
 ├── utils
 |	├── cacheStorage.js
-| └── sessionStorage.js
+|   └── sessionStorage.js
 ├── App.js
 └── index.js
 ```
